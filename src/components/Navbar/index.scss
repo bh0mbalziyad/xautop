@@ -1,0 +1,81 @@
+@import "../../theme.scss";
+
+.border {
+  border: 1px solid red;
+}
+
+.header {
+  background-color: $color-primary;
+  position: relative;
+  padding: 1rem 0;
+}
+
+.header.scrolled {
+  filter: drop-shadow(0px 5px 7px rgba(0, 0, 0, 0.25));
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &--logo {
+    margin-bottom: -10px;
+  }
+
+  &--links {
+    display: none;
+    gap: 1.75rem;
+  }
+
+  &--link-item {
+    list-style-type: none;
+
+    & a {
+      text-decoration: none;
+      font-weight: 300;
+      color: $color-text-header;
+      transition: font-weight 250ms ease-in;
+      font-size: 1.3rem;
+
+      &:hover {
+        font-weight: bold;
+      }
+    }
+
+    & a.current {
+      font-weight: bold;
+    }
+  }
+
+  &--mobile-menu-toggle__container {
+    cursor: pointer;
+  }
+}
+
+.nav-container {
+  max-width: unset;
+}
+
+@media only screen and (min-width: 800px) {
+  .header {
+    padding: 3rem 0;
+  }
+  .nav {
+    justify-content: center;
+
+    &--mobile-menu-toggle__container {
+      display: none;
+    }
+
+    &--logo__container {
+      position: absolute;
+      left: 1.5rem;
+      top: 30%;
+    }
+
+    &--links {
+      display: flex;
+    }
+  }
+}
