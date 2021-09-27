@@ -14,25 +14,29 @@ function Navbar() {
     drawerRef.current?.classList.toggle("active");
   };
 
-  const links = (isMobile?: true) => (
+  const links = (isMobile: boolean = false) => (
     <ul className="nav--links">
       <li className="nav--link-item">
-        <a onClick={isMobile && overlayToggle} className="current" href="#home">
+        <a
+          onClick={isMobile ? overlayToggle : undefined}
+          className="current"
+          href="#home"
+        >
           Home
         </a>
       </li>
       <li className="nav--link-item">
-        <a onClick={overlayToggle} href="#about">
+        <a onClick={isMobile ? overlayToggle : undefined} href="#about">
           About
         </a>
       </li>
       <li className="nav--link-item">
-        <a onClick={overlayToggle} href="#works">
+        <a onClick={isMobile ? overlayToggle : undefined} href="#works">
           Works
         </a>
       </li>
       <li className="nav--link-item">
-        <a onClick={overlayToggle} href="#contact">
+        <a onClick={isMobile ? overlayToggle : undefined} href="#contact">
           Contact Me
         </a>
       </li>
@@ -47,7 +51,7 @@ function Navbar() {
         className="mobile--overlay active"
       ></div>
       <div ref={drawerRef} className="mobile--drawer active">
-        {links()}
+        {links(true)}
       </div>
       <div className="container nav-container">
         <nav className="nav">
