@@ -1,36 +1,64 @@
-import React, { useEffect } from "react";
+import React, { useRef } from "react";
 import "./index.scss";
 import { ReactComponent as HamburgerIcon } from "../../assets/images/hamburger.svg";
 import { ReactComponent as Logo } from "../../assets/images/logo.svg";
 
 function Navbar() {
+  const overlayRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
   // useEffect(() => {
-  //   console.log("Hamburger--", HamburgerIcon);
+
   // }, []);
+  const overlayToggle = () => {
+    overlayRef.current?.classList.toggle("active");
+    drawerRef.current?.classList.toggle("active");
+  };
+
+  const links = (isMobile?: true) => (
+    <ul className="nav--links">
+      <li className="nav--link-item">
+        <a onClick={isMobile && overlayToggle} className="current" href="#home">
+          Home
+        </a>
+      </li>
+      <li className="nav--link-item">
+        <a onClick={overlayToggle} href="#about">
+          About
+        </a>
+      </li>
+      <li className="nav--link-item">
+        <a onClick={overlayToggle} href="#works">
+          Works
+        </a>
+      </li>
+      <li className="nav--link-item">
+        <a onClick={overlayToggle} href="#contact">
+          Contact Me
+        </a>
+      </li>
+    </ul>
+  );
+
   return (
     <header className="header">
+      <div
+        ref={overlayRef}
+        onClick={overlayToggle}
+        className="mobile--overlay active"
+      ></div>
+      <div ref={drawerRef} className="mobile--drawer active">
+        {links()}
+      </div>
       <div className="container nav-container">
         <nav className="nav">
           <span className="nav--logo__container">
             <Logo className="nav--logo" />
           </span>
-          <ul className="nav--links">
-            <li className="nav--link-item">
-              <a className="current" href="#home">
-                Home
-              </a>
-            </li>
-            <li className="nav--link-item">
-              <a href="#about">About</a>
-            </li>
-            <li className="nav--link-item">
-              <a href="#works">Works</a>
-            </li>
-            <li className="nav--link-item">
-              <a href="#contact">Contact Me</a>
-            </li>
-          </ul>
-          <span className="nav--mobile-menu-toggle__container">
+          {links()}
+          <span
+            className="nav--mobile-menu-toggle__container"
+            onClick={overlayToggle}
+          >
             <HamburgerIcon className="nav--mobile-menu-toggle" />
           </span>
         </nav>
