@@ -1,0 +1,68 @@
+.tools {
+  &-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // align-items: center;
+    gap: 1.5rem;
+  }
+
+  &--heading {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.1rem;
+
+    @media only screen and (min-width: 800px) {
+      & {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &--logos__container {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    white-space: nowrap;
+    animation: slideshow 40s ease-in-out infinite;
+
+    @media only screen and (min-width: 800px) {
+      & {
+        width: 60vw;
+        max-width: 1000px;
+      }
+    }
+
+    @keyframes slideshow {
+      0% {
+        transform: translate(5%, 0);
+      }
+
+      50% {
+        transform: translate(-90%, 0);
+      }
+
+      100% {
+        transform: translate(5%, 0);
+      }
+    }
+  }
+
+  &-logo {
+    width: auto;
+    height: 33px;
+
+    @media only screen and (min-width: 600px) {
+      & {
+        height: 40px;
+      }
+    }
+
+    @media only screen and (min-width: 800px) {
+      & {
+        height: 70px;
+      }
+    }
+  }
+}

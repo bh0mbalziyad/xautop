@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import "./index.scss";
-import { ReactComponent as HamburgerIcon } from "../../assets/images/hamburger.svg";
-import { ReactComponent as Logo } from "../../assets/images/logo.svg";
+import React, { useRef } from 'react';
+import './index.scss';
+import { ReactComponent as HamburgerIcon } from '../../assets/images/hamburger.svg';
+import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 
 function Navbar() {
   const overlayRef = useRef<HTMLDivElement>(null);
@@ -10,34 +10,35 @@ function Navbar() {
 
   // }, []);
   const overlayToggle = () => {
-    overlayRef.current?.classList.toggle("active");
-    drawerRef.current?.classList.toggle("active");
+    overlayRef.current?.classList.toggle('active');
+    drawerRef.current?.classList.toggle('active');
+    document.body.classList.toggle('sidebar-open');
   };
 
   const links = (isMobile: boolean = false) => (
-    <ul className="nav--links">
-      <li className="nav--link-item">
+    <ul className='nav--links'>
+      <li className='nav--link-item'>
         {/* eslint-disable-next-line */}
         <a
           onClick={isMobile ? overlayToggle : undefined}
-          className="current"
-          href="#"
+          className='current'
+          href='#'
         >
           Home
         </a>
       </li>
-      <li className="nav--link-item">
-        <a onClick={isMobile ? overlayToggle : undefined} href="#about">
+      <li className='nav--link-item'>
+        <a onClick={isMobile ? overlayToggle : undefined} href='#about'>
           About
         </a>
       </li>
-      <li className="nav--link-item">
-        <a onClick={isMobile ? overlayToggle : undefined} href="#works">
+      <li className='nav--link-item'>
+        <a onClick={isMobile ? overlayToggle : undefined} href='#works'>
           Works
         </a>
       </li>
-      <li className="nav--link-item">
-        <a onClick={isMobile ? overlayToggle : undefined} href="#contact">
+      <li className='nav--link-item'>
+        <a onClick={isMobile ? overlayToggle : undefined} href='#contact'>
           Contact Me
         </a>
       </li>
@@ -45,26 +46,26 @@ function Navbar() {
   );
 
   return (
-    <header className="header">
+    <header className='header'>
       <div
         ref={overlayRef}
         onClick={overlayToggle}
-        className="mobile--overlay"
+        className='mobile--overlay'
       ></div>
-      <div ref={drawerRef} className="mobile--drawer">
+      <div ref={drawerRef} className='mobile--drawer'>
         {links(true)}
       </div>
-      <div className="container nav-container">
-        <nav className="nav">
-          <span className="nav--logo__container">
-            <Logo className="nav--logo" />
+      <div className='container nav-container'>
+        <nav className='nav'>
+          <span className='nav--logo__container'>
+            <Logo className='nav--logo' />
           </span>
           {links()}
           <span
-            className="nav--mobile-menu-toggle__container"
+            className='nav--mobile-menu-toggle__container'
             onClick={overlayToggle}
           >
-            <HamburgerIcon className="nav--mobile-menu-toggle" />
+            <HamburgerIcon className='nav--mobile-menu-toggle' />
           </span>
         </nav>
       </div>
