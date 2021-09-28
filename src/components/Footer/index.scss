@@ -28,6 +28,7 @@
     padding: 0.5rem 0.8rem;
     background-color: $color-primary-swatch;
     border-radius: 1.429rem;
+    box-shadow: 0px 6px 4px rgba(112, 112, 112, 0.25);
   }
 
   &--link-item {
@@ -44,6 +45,7 @@
 
     &__logo-container path {
       transition: fill 250ms ease-in;
+      transform: translateY(0.25px);
     }
     &__logo-container:hover path,
     &__logo-container:focus path,
