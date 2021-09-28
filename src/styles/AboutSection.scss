@@ -1,0 +1,35 @@
+@import "../theme.scss";
+
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 500px;
+
+  &--content {
+    color: $color-text-secondary;
+    font-size: 1rem;
+  }
+
+  @media only screen and (min-width: 800px) {
+    & {
+      padding: initial 2rem;
+      flex-direction: row;
+      justify-content: space-between;
+      max-width: 1033px;
+      gap: 2rem;
+
+      &--img {
+        height: auto;
+        width: 100%;
+        max-width: 459px;
+      }
+
+      &--content {
+        width: 70%;
+        font-size: 2rem;
+      }
+    }
+  }
+}
