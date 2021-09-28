@@ -31,10 +31,24 @@
       & {
         width: 60vw;
         max-width: 1000px;
+        animation-name: slideshow-desktop;
+      }
+    }
+    @keyframes slideshow-desktop {
+      0% {
+        transform: translate(5%, 0);
+      }
+
+      50% {
+        transform: translate(-30%, 0);
+      }
+
+      100% {
+        transform: translate(5%, 0);
       }
     }
 
-    @keyframes slideshow {
+    @keyframes slideshow-mobile {
       0% {
         transform: translate(5%, 0);
       }
