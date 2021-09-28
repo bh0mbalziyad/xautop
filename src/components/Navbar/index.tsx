@@ -22,7 +22,7 @@ function Navbar() {
         <a
           onClick={isMobile ? overlayToggle : undefined}
           className='current'
-          href='#'
+          href='#home'
         >
           Home
         </a>
@@ -46,7 +46,7 @@ function Navbar() {
   );
 
   return (
-    <header className='header'>
+    <header id='home' className='header'>
       <div
         ref={overlayRef}
         onClick={overlayToggle}

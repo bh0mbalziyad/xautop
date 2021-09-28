@@ -42,11 +42,12 @@ body {
 }
 
 section {
+  margin: 1rem 0;
   padding: 0.7rem 0;
 
   @media only screen and (min-width: 800px) {
     & {
-      padding: 1.85rem;
+      padding: 1.85rem 0;
     }
   }
 }

@@ -25,7 +25,7 @@
     gap: 2rem;
     justify-content: space-between;
     white-space: nowrap;
-    animation: slideshow 40s ease-in-out infinite;
+    animation: slideshow-mobile 40s ease-in-out infinite;
 
     @media only screen and (min-width: 800px) {
       & {

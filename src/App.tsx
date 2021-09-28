@@ -1,24 +1,30 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 
 import './App.scss';
 import './styles/HeroSection.scss';
 import './styles/AboutSection.scss';
 import './styles/ToolsSection.scss';
+import './styles/WorksSection.scss';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import WorkCard from './components/WorkCard';
 
 import { importAll } from './shared';
 
 import { ReactComponent as HeroSvg } from './assets/images/hero.svg';
 import WebMasterImg from './assets/images/ziyad-landscape.svg';
+import Hackstrap1 from './assets/images/works/hackstrap1.png';
+import Hackstrap2 from './assets/images/works/hackstrap2.png';
+import Hackstrap3 from './assets/images/works/hackstrap3.png';
+import CaptainKio1 from './assets/images/works/captainkio1.png';
+import CaptainKio2 from './assets/images/works/captainkio2.png';
+import CaptainKio3 from './assets/images/works/captainkio3.png';
 
 function App() {
   const importImages = useRef(
     importAll(require.context('./assets/images/tools-logos', false, /\.(svg)$/))
   ).current;
-
-  useEffect(() => {});
 
   const Hero = () => (
     <section className='hero-section container'>
@@ -30,7 +36,7 @@ function App() {
   );
 
   const About = () => (
-    <section className='about-section container'>
+    <section id='about' className='about-section container'>
       <img
         className='about-section--img'
         src={WebMasterImg}
@@ -47,9 +53,63 @@ function App() {
   );
 
   const Tools = () => (
-    <section className='tools-section'>
+    <section id='tools' className='tools-section'>
       <h2 className='tools--heading'>Some of the tools I work with</h2>
       <div className='tools--logos__container'>{getImages()}</div>
+    </section>
+  );
+
+  const Works = () => (
+    <section id='works' className='works-section container'>
+      <h2 className='works-section--title'>Projects I have worked on</h2>
+      <WorkCard
+        title='Hackstrap'
+        subtitle='A Hyderabad based startup which helps startups meet potential investors'
+      >
+        <div className='works-section--img__container'>
+          <img
+            className='works-section--img'
+            src={Hackstrap1}
+            alt='Hackstrap 1'
+          />
+          <div className='works-section--img__row-container'>
+            <img
+              className='works-section--img row-img'
+              src={Hackstrap2}
+              alt='Hackstrap 2'
+            />
+            <img
+              className='works-section--img row-img'
+              src={Hackstrap3}
+              alt='Hackstrap 3'
+            />
+          </div>
+        </div>
+      </WorkCard>
+      <WorkCard
+        title='Captain Kio'
+        subtitle='An in-restaurant inventory and order managing web app'
+      >
+        <div className='works-section--img__container'>
+          <img
+            className='works-section--img'
+            src={CaptainKio1}
+            alt='Captain Kio 1'
+          />
+          <div className='works-section--img__row-container'>
+            <img
+              className='works-section--img row-img'
+              src={CaptainKio2}
+              alt='Captain Kio 2'
+            />
+            <img
+              className='works-section--img row-img'
+              src={CaptainKio3}
+              alt='Captain Kio 3'
+            />
+          </div>
+        </div>
+      </WorkCard>
     </section>
   );
 
@@ -75,6 +135,7 @@ function App() {
       {Hero()}
       {About()}
       {Tools()}
+      {Works()}
       <Footer />
     </>
   );

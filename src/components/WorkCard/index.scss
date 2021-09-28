@@ -1,0 +1,41 @@
+@import '../../theme.scss';
+
+.work-card {
+  text-align: left;
+  background-color: $color-primary;
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 1056px;
+  width: 100%;
+
+  &--header {
+    color: $color-text__card-header;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+
+    @media only screen and (min-width: 800px) {
+      & {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  &--subtitle {
+    color: $color-text-secondary;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1rem;
+
+    @media only screen and (min-width: 800px) {
+      & {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+.work-card + .work-card {
+  margin-top: 1.5rem;
+}
