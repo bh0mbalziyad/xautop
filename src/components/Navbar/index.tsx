@@ -17,10 +17,11 @@ function Navbar() {
   const links = (isMobile: boolean = false) => (
     <ul className="nav--links">
       <li className="nav--link-item">
+        {/* eslint-disable-next-line */}
         <a
           onClick={isMobile ? overlayToggle : undefined}
           className="current"
-          href="#home"
+          href="#"
         >
           Home
         </a>
@@ -48,9 +49,9 @@ function Navbar() {
       <div
         ref={overlayRef}
         onClick={overlayToggle}
-        className="mobile--overlay active"
+        className="mobile--overlay"
       ></div>
-      <div ref={drawerRef} className="mobile--drawer active">
+      <div ref={drawerRef} className="mobile--drawer">
         {links(true)}
       </div>
       <div className="container nav-container">
