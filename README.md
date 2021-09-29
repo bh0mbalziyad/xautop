@@ -6,4 +6,4 @@
 - Inspiration for custom elements drawn from Dribbble
 - CSS knowledge covention from [Kevin Powell](https://www.youtube.com/kepowob)
 - React Typescript knowledge from madlad [Ben Awad](https://www.youtube.com/c/BenAwad97)
-- Love and design support, advice from my lovely friend [Photuwale](https://www.instagram.com/photuwale/)
+- Love and design support/advice from my lovely friend [Photuwale](https://www.instagram.com/photuwale/)
