@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './index.scss';
 import { ReactComponent as HamburgerIcon } from '../../assets/images/hamburger.svg';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
@@ -6,23 +6,30 @@ import { ReactComponent as Logo } from '../../assets/images/logo.svg';
 function Navbar() {
   const overlayRef = useRef<HTMLDivElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
-  // useEffect(() => {
-
-  // }, []);
   const overlayToggle = () => {
     overlayRef.current?.classList.toggle('active');
     drawerRef.current?.classList.toggle('active');
     document.body.classList.toggle('sidebar-open');
   };
 
+  // useEffect(() => {
+  //   document.querySelectorAll('.nav--link-item a').forEach((anchor) => {
+  //     anchor.addEventListener('click', (e) => {
+  //       e.preventDefault();
+  //       const href = anchor.getAttribute('href');
+  //       if (href !== null)
+  //         document.getElementById(href)?.scrollTo({ behavior: 'smooth' });
+  //     });
+  //   });
+  // });
+
   const links = (isMobile: boolean = false) => (
     <ul className='nav--links'>
       <li className='nav--link-item'>
-        {/* eslint-disable-next-line */}
         <a
           onClick={isMobile ? overlayToggle : undefined}
           className='current'
-          href='#home'
+          href='#top'
         >
           Home
         </a>
@@ -46,7 +53,23 @@ function Navbar() {
   );
 
   return (
-    <header id='home' className='header'>
+    <>
+      <header id='home' className='header'>
+        <div className='container nav-container'>
+          <nav className='nav'>
+            <span className='nav--logo__container'>
+              <Logo className='nav--logo' />
+            </span>
+            {links()}
+            <span
+              className='nav--mobile-menu-toggle__container'
+              onClick={overlayToggle}
+            >
+              <HamburgerIcon className='nav--mobile-menu-toggle' />
+            </span>
+          </nav>
+        </div>
+      </header>
       <div
         ref={overlayRef}
         onClick={overlayToggle}
@@ -55,21 +78,7 @@ function Navbar() {
       <div ref={drawerRef} className='mobile--drawer'>
         {links(true)}
       </div>
-      <div className='container nav-container'>
-        <nav className='nav'>
-          <span className='nav--logo__container'>
-            <Logo className='nav--logo' />
-          </span>
-          {links()}
-          <span
-            className='nav--mobile-menu-toggle__container'
-            onClick={overlayToggle}
-          >
-            <HamburgerIcon className='nav--mobile-menu-toggle' />
-          </span>
-        </nav>
-      </div>
-    </header>
+    </>
   );
 }
 

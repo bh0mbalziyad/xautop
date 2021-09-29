@@ -1,4 +1,4 @@
-@import "../../theme.scss";
+@import '../../theme.scss';
 
 .border {
   border: 1px solid red;
@@ -7,6 +7,10 @@
 .header {
   background-color: $color-primary;
   padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
 }
 
 .header.scrolled {
@@ -69,15 +73,16 @@
     transition: background-color 250ms ease-in;
   }
   &--overlay.active {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.25);
+    z-index: 1;
   }
   &--drawer {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     bottom: 0;
@@ -91,6 +96,7 @@
     justify-content: flex-start;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
   }
   &--drawer.active {
     transform: translateX(0);
@@ -116,7 +122,7 @@
 @media only screen and (min-width: 800px) {
   .header {
     padding: 3rem 0;
-    position: relative;
+    // position: relative;
   }
   .nav {
     justify-content: center;
