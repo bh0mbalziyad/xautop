@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import './App.scss';
 import './styles/HeroSection.scss';
@@ -10,7 +10,11 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WorkCard from './components/WorkCard';
 
-import { importAll } from './shared';
+import {
+  importAll,
+  intersectionObserverCallback,
+  intersectionObserverOptions,
+} from './shared';
 
 import { ReactComponent as HeroSvg } from './assets/images/hero.svg';
 import WebMasterImg from './assets/images/ziyad-landscape.svg';
@@ -26,8 +30,25 @@ function App() {
     importAll(require.context('./assets/images/tools-logos', false, /\.(svg)$/))
   ).current;
 
+  const observer = useRef(
+    new IntersectionObserver(
+      intersectionObserverCallback,
+      intersectionObserverOptions
+    )
+  ).current;
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('.fade-in');
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      observer.disconnect();
+    };
+  });
+
   const Hero = () => (
-    <section className='hero-section container'>
+    <section id='top' className='hero-section container fade-in'>
       <HeroSvg
         className='hero-section__img'
         aria-label="Image describing the webmaster's skills - web developer/ devops engineer"
@@ -36,7 +57,7 @@ function App() {
   );
 
   const About = () => (
-    <section id='about' className='about-section container'>
+    <section id='about' className='about-section container fade-in'>
       <img
         className='about-section--img'
         src={WebMasterImg}

@@ -13,6 +13,14 @@ body {
   height: 100%;
   font-size: 14px;
   overflow-x: hidden;
+  scroll-behavior: smooth;
+  scroll-padding: 85px;
+
+  @media only screen and (min-width: 800px) {
+    & {
+      scroll-padding: 115px;
+    }
+  }
 }
 
 body.sidebar-open {
@@ -33,6 +41,13 @@ body {
   font-weight: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // margin-top: 79px;
+
+  // @media only screen and (min-width: 800px) {
+  //   & {
+  //     margin-top: 107px;
+  //   }
+  // }
 }
 
 .container {
@@ -44,10 +59,22 @@ body {
 section {
   margin: 1rem 0;
   padding: 0.7rem 0;
-
   @media only screen and (min-width: 800px) {
     & {
       padding: 1.85rem 0;
     }
   }
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: transform 0.8s cubic-bezier(0.26, 1, 0.48, 1),
+    opacity 0.8s cubic-bezier(0.26, 1, 0.48, 1);
+  // animation: fade-in 0.8s cubic-bezier(0.26, 1, 0.48, 1) 0.4s 1 forwards normal;
+}
+
+.fade-in.appear {
+  opacity: 1;
+  transform: translateY(0);
 }
