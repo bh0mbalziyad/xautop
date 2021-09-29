@@ -1,15 +1,27 @@
-@import "../../theme.scss";
+@import '../../theme.scss';
 
 .footer {
+  margin-top: 1.25rem;
   background-color: $color-primary;
-  padding: 1.25rem 0;
+  padding: 1.25rem;
   text-align: center;
+
+  @media only screen and (min-width: 800px) {
+    & {
+      padding: 2.6rem 0;
+      margin-top: 2.6rem;
+    }
+  }
 
   & .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media only screen and (min-width: 800px) {
+      gap: 1.75rem;
+    }
   }
 
   &--header {
@@ -26,9 +38,9 @@
     margin: 1rem 0;
     width: min-content;
     padding: 0.5rem 0.8rem;
-    background-color: $color-primary-swatch;
+    // background-color: $color-primary-swatch;
     border-radius: 1.429rem;
-    box-shadow: 0px 6px 4px rgba(112, 112, 112, 0.25);
+    // box-shadow: 0px 6px 4px rgba(112, 112, 112, 0.25);
   }
 
   &--link-item {
@@ -44,6 +56,7 @@
     }
 
     &__logo-container path {
+      // fill: hsl();
       transition: fill 250ms ease-in;
       transform: translateY(0.25px);
     }

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import './index.scss';
 import { ReactComponent as HamburgerIcon } from '../../assets/images/hamburger.svg';
 import { ReactComponent as Logo } from '../../assets/images/logo.svg';
@@ -11,17 +11,6 @@ function Navbar() {
     drawerRef.current?.classList.toggle('active');
     document.body.classList.toggle('sidebar-open');
   };
-
-  // useEffect(() => {
-  //   document.querySelectorAll('.nav--link-item a').forEach((anchor) => {
-  //     anchor.addEventListener('click', (e) => {
-  //       e.preventDefault();
-  //       const href = anchor.getAttribute('href');
-  //       if (href !== null)
-  //         document.getElementById(href)?.scrollTo({ behavior: 'smooth' });
-  //     });
-  //   });
-  // });
 
   const links = (isMobile: boolean = false) => (
     <ul className='nav--links'>
