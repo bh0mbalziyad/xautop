@@ -38,6 +38,8 @@ function App() {
   ).current;
 
   useEffect(() => {
+    document.title = 'Portfolio | Ziyad';
+
     const sections = document.querySelectorAll('.fade-in');
 
     sections.forEach((section) => observer.observe(section));
